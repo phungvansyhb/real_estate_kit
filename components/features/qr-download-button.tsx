@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { LoaderCircle, QrCode } from 'lucide-react'
 
-import type { Locale } from '@/lib/i18n'
+import type { Locale } from '@/i18n/routing'
 import { Button } from '@/components/ui/button'
 
 interface QrDownloadButtonProps {
@@ -12,7 +12,7 @@ interface QrDownloadButtonProps {
   label?: string
 }
 
-export function QrDownloadButton({ slug, locale = 'vi', label = 'Tải QR code' }: QrDownloadButtonProps) {
+export function QrDownloadButton({ slug, locale = 'vi', label = 'Tải mã QR' }: QrDownloadButtonProps) {
   const [isDownloading, setIsDownloading] = useState(false)
 
   async function handleDownload() {

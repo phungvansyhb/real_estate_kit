@@ -1,7 +1,8 @@
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
-import type { Locale } from '@/lib/i18n'
-import { localeLabels, locales } from '@/lib/i18n'
+import type { Locale } from '@/i18n/routing'
+import { locales } from '@/i18n/routing'
 import { cn } from '@/lib/utils'
 
 interface LocaleSwitcherProps {
@@ -10,6 +11,8 @@ interface LocaleSwitcherProps {
 }
 
 export function LocaleSwitcher({ currentLocale, pathResolver }: LocaleSwitcherProps) {
+  const t = useTranslations('LocaleSwitcher')
+
   return (
     <div className="inline-flex items-center rounded-full border border-[color:var(--border)] bg-white p-1 shadow-sm">
       {locales.map((locale) => (
@@ -23,7 +26,7 @@ export function LocaleSwitcher({ currentLocale, pathResolver }: LocaleSwitcherPr
               : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950'
           )}
         >
-          {localeLabels[locale]}
+          {t(locale)}
         </Link>
       ))}
     </div>

@@ -13,6 +13,7 @@ export interface AgentProfile {
   phone: string
   email: string
   company: string
+  bio: string
   avatarUrl: string
   plan: 'free' | 'starter' | 'pro'
 }
@@ -24,14 +25,16 @@ export interface Listing {
   description: string
   price: number
   area: number
-  bedrooms: number
-  bathrooms: number
+  bedrooms?: number
+  bathrooms?: number
   address: string
   district: string
   city: string
   type: ListingIntent
   propertyType: PropertyType
+  propertySubtype?: string
   amenities: string[]
+  highlights?: string[]
   images: string[]
   status: ListingStatus
   viewCount: number
@@ -43,6 +46,32 @@ export interface Listing {
   featured: boolean
   createdAt: string
   agent: AgentProfile
+}
+
+export interface ListingDraftInput {
+  userId: string
+  agent: AgentProfile
+  title: string
+  description: string
+  price?: number
+  area?: number
+  bedrooms?: number
+  bathrooms?: number
+  address: string
+  district: string
+  city: string
+  type: ListingIntent
+  propertyType: PropertyType
+  propertySubtype?: string
+  amenities: string[]
+  highlights: string[]
+  images: string[]
+}
+
+export interface DashboardStat {
+  label: string
+  value: string
+  description: string
 }
 
 export interface PlanFeature {

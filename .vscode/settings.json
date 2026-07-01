@@ -1,0 +1,14 @@
+{
+    "i18n-ally.localesPaths": [
+        "i18n",
+        "messages"
+    ],
+    "editor.fontSize": 16,
+    "editor.mouseWheelZoom": true,
+    "chat.editor.fontSize": 16,
+    "chat.fontSize": 16,
+    "debug.console.fontSize": 16,
+    "scm.inputFontSize": 16,
+    "terminal.integrated.fontSize": 12,
+    "markdown.preview.fontSize": 16
+}

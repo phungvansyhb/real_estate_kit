@@ -1,4 +1,4 @@
-import type { Listing, PricingPlan } from '@/types/listing'
+import type { DashboardStat, Listing, PricingPlan } from '@/types/listing'
 
 const agent = {
   id: 'agent-1',
@@ -6,6 +6,7 @@ const agent = {
   phone: '0901234567',
   email: 'minhan@listingkit.vn',
   company: 'An Gia Boutique Realty',
+  bio: 'Tôi tập trung nhà phố, căn hộ và đất nền khu Đông TP.HCM, ưu tiên tư vấn rõ pháp lý, mức giá thực tế và phương án giao dịch phù hợp cho từng nhu cầu mua ở hoặc đầu tư.',
   avatarUrl:
     'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80',
   plan: 'starter' as const,
@@ -27,7 +28,9 @@ export const sampleListings: Listing[] = [
     city: 'TP. Hồ Chí Minh',
     type: 'sell',
     propertyType: 'apartment',
-    amenities: ['Metro', 'Hồ bơi', 'Gym', 'TTTM Vincom', 'Bảo vệ 24/7'],
+    propertySubtype: 'Căn hộ cao cấp',
+    amenities: ['Gần Metro', 'Hồ bơi', 'Phòng gym', 'Trung tâm thương mại', 'Bảo vệ 24/7'],
+    highlights: ['Ban công rộng', 'Nội thất hoàn thiện', 'Tầng cao thoáng gió'],
     images: [
       'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1600&q=80',
       'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1600&q=80',
@@ -61,7 +64,9 @@ export const sampleListings: Listing[] = [
     city: 'TP. Hồ Chí Minh',
     type: 'sell',
     propertyType: 'house',
-    amenities: ['Công viên', 'Hồ cảnh quan', 'Khu compound', 'Trường học'],
+    propertySubtype: 'Nhà phố',
+    amenities: ['Khu compound', 'Gần trường học', 'Ô tô vào tận nơi', 'Công viên'],
+    highlights: ['Nội thất mới', '3 tầng hoàn thiện', 'Khai thác ở hoặc làm văn phòng'],
     images: [
       'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80',
       'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=1600&q=80',
@@ -82,7 +87,41 @@ export const sampleListings: Listing[] = [
   },
   {
     id: 'listing-3',
-    slug: 'van-phong-shophouse-thao-dien-mat-tien',
+    slug: 'dat-tho-cu-gan-cho-long-truong-so-rieng',
+    title: 'Đất thổ cư gần chợ Long Trường, sổ riêng',
+    description:
+      'Lô đất vuông vức tại Long Trường, đường ô tô vào thuận tiện, khu dân cư đang phát triển ổn định. Vị trí gần chợ, trường học và kết nối nhanh ra các trục đường lớn. Phù hợp cho khách mua xây nhà ở ngay hoặc giữ tài sản chờ tăng giá.',
+    price: 3650000000,
+    area: 96,
+    address: 'Đường Long Thuận, Phường Long Trường',
+    district: 'Thủ Đức',
+    city: 'TP. Hồ Chí Minh',
+    type: 'sell',
+    propertyType: 'land',
+    propertySubtype: 'Đất thổ cư',
+    amenities: ['Thổ cư 100%', 'Gần chợ', 'Gần trường học', 'Đường ô tô'],
+    highlights: ['Sổ riêng', 'Khu dân cư hiện hữu', 'Tiềm năng tăng giá'],
+    images: [
+      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=80',
+      'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80',
+      'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=1600&q=80',
+    ],
+    status: 'active',
+    viewCount: 612,
+    leadsCount: 9,
+    sourceBreakdown: [
+      { label: 'Zalo', value: 41 },
+      { label: 'QR', value: 21 },
+      { label: 'Facebook', value: 17 },
+      { label: 'Direct', value: 11 },
+    ],
+    featured: false,
+    createdAt: '2026-06-23T08:10:00.000Z',
+    agent,
+  },
+  {
+    id: 'listing-4',
+    slug: 'shophouse-thao-dien-mat-tien-phu-hop-showroom',
     title: 'Shophouse Thảo Điền mặt tiền phù hợp showroom',
     description:
       'Shophouse góc hai mặt tiền tại khu Thảo Điền, phù hợp mở showroom, studio hoặc văn phòng đại diện. Không gian trần cao, mặt kính rộng và lưu lượng khách qua lại ổn định. Tài sản hiếm trong khu vực, dễ khai thác thương mại.',
@@ -95,7 +134,9 @@ export const sampleListings: Listing[] = [
     city: 'TP. Hồ Chí Minh',
     type: 'rent',
     propertyType: 'shophouse',
-    amenities: ['Mặt tiền', 'Bãi đỗ xe', 'Khu dân cư cao cấp', 'Gần Metro'],
+    propertySubtype: 'Shophouse mặt tiền',
+    amenities: ['Mặt tiền lớn', 'Chỗ đỗ xe thuận tiện', 'Gần Metro', 'Khu dân cư cao cấp'],
+    highlights: ['Phù hợp showroom', 'Khai thác thương mại tốt', 'Hai mặt tiền'],
     images: [
       'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1600&q=80',
       'https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1600&q=80',
@@ -161,11 +202,11 @@ export const pricingPlans: PricingPlan[] = [
   },
 ]
 
-export const dashboardStats = [
+export const dashboardStats: DashboardStat[] = [
   {
-    label: 'Active listings',
+    label: 'Tin đang hiển thị',
     value: '12',
-    description: '3 listings mới được publish trong 7 ngày qua',
+    description: '3 tin mới được xuất bản trong 7 ngày qua',
   },
   {
     label: 'Tổng lượt xem',
@@ -173,21 +214,13 @@ export const dashboardStats = [
     description: 'Tăng 18% so với tuần trước',
   },
   {
-    label: 'Leads mới',
+    label: 'Khách quan tâm mới',
     value: '29',
-    description: '6 lead đến từ QR ngoài thực địa',
+    description: '6 khách đến từ mã QR ngoài thực địa',
   },
   {
-    label: 'Conversion demo',
+    label: 'Tỷ lệ chuyển đổi',
     value: '11.8%',
-    description: 'Tỷ lệ view → form submit của tuần này',
+    description: 'Tỷ lệ xem trang đến gửi thông tin của tuần này',
   },
 ]
-
-export function getListingBySlug(slug: string) {
-  return sampleListings.find((listing) => listing.slug === slug)
-}
-
-export function getFeaturedListing() {
-  return sampleListings.find((listing) => listing.featured) ?? sampleListings[0]
-}

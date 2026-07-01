@@ -1,14 +1,14 @@
 'use client'
 
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { LoaderCircle, SendHorizonal } from 'lucide-react'
 
-import type { Locale } from '@/lib/i18n'
-import { listingPageContent } from '@/lib/i18n'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import type { Locale } from '@/i18n/routing'
 
 interface LeadFormProps {
   listingId: string
@@ -16,7 +16,7 @@ interface LeadFormProps {
 }
 
 export function LeadForm({ listingId, locale = 'vi' }: LeadFormProps) {
-  const content = listingPageContent[locale]
+  const t = useTranslations('LeadForm')
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [note, setNote] = useState('')
@@ -51,17 +51,17 @@ export function LeadForm({ listingId, locale = 'vi' }: LeadFormProps) {
       const payload = (await response.json()) as { error?: string; data?: { message: string } }
 
       if (!response.ok) {
-        setError(payload.error ?? content.genericError)
+        setError(payload.error ?? t('genericError'))
         return
       }
 
-      setSuccess(payload.data?.message ?? content.success)
+      setSuccess(payload.data?.message ?? t('success'))
       setName('')
       setPhone('')
       setNote('')
       setPreferredTime('')
     } catch {
-      setError(content.genericError)
+      setError(t('genericError'))
     } finally {
       setIsPending(false)
     }
@@ -70,26 +70,26 @@ export function LeadForm({ listingId, locale = 'vi' }: LeadFormProps) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>{content.leadTitle}</CardTitle>
-        <CardDescription>{content.leadDescription}</CardDescription>
+        <CardTitle>{t('leadTitle')}</CardTitle>
+        <CardDescription>{t('leadDescription')}</CardDescription>
       </CardHeader>
       <CardContent>
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div className="space-y-2">
             <label className="text-sm font-medium text-slate-700" htmlFor="lead-name">
-              {content.fullName}
+              {t('fullName')}
             </label>
             <Input
               id="lead-name"
               value={name}
               onChange={(event) => setName(event.target.value)}
-              placeholder={locale === 'vi' ? 'Nguyễn Văn A' : 'John Smith'}
+              placeholder={t('namePlaceholder')}
             />
           </div>
 
           <div className="space-y-2">
             <label className="text-sm font-medium text-slate-700" htmlFor="lead-phone">
-              {content.phone}
+              {t('phone')}
             </label>
             <Input
               id="lead-phone"
@@ -101,25 +101,25 @@ export function LeadForm({ listingId, locale = 'vi' }: LeadFormProps) {
 
           <div className="space-y-2">
             <label className="text-sm font-medium text-slate-700" htmlFor="lead-time">
-              {content.preferredTime}
+              {t('preferredTime')}
             </label>
             <Input
               id="lead-time"
               value={preferredTime}
               onChange={(event) => setPreferredTime(event.target.value)}
-              placeholder={locale === 'vi' ? 'Ví dụ: 19h tối thứ Bảy' : 'Example: Saturday at 7 PM'}
+              placeholder={t('timePlaceholder')}
             />
           </div>
 
           <div className="space-y-2">
             <label className="text-sm font-medium text-slate-700" htmlFor="lead-note">
-              {content.note}
+              {t('note')}
             </label>
             <Textarea
               id="lead-note"
               value={note}
               onChange={(event) => setNote(event.target.value)}
-              placeholder={locale === 'vi' ? 'Tôi muốn xem thêm pháp lý và phí quản lý' : 'I would like to review legal docs and maintenance fees'}
+              placeholder={t('notePlaceholder')}
             />
           </div>
 
@@ -127,7 +127,7 @@ export function LeadForm({ listingId, locale = 'vi' }: LeadFormProps) {
           {success ? <p className="text-sm text-emerald-600">{success}</p> : null}
 
           <Button type="submit" className="w-full" disabled={isPending}>
-            {isPending ? content.submitting : content.submit}
+            {isPending ? t('submitting') : t('submit')}
             {isPending ? (
               <LoaderCircle className="h-4 w-4 animate-spin" />
             ) : (

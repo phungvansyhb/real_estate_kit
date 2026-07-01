@@ -8,7 +8,7 @@ export function SectionLabel({ children }: SectionLabelProps) {
   return (
     <Badge
       variant="outline"
-      className="rounded-full border-sky-200 bg-sky-50 text-sky-700"
+      className="rounded-full border-sky-200 bg-sky-50 text-sky-700 w-max"
     >
       {children}
     </Badge>

@@ -2,7 +2,17 @@ import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Bath, BedDouble, LayoutDashboard, ListPlus, MapPin, MessageCircleMore, Phone, Square, Star } from 'lucide-react'
+import {
+  Bath,
+  BedDouble,
+  LayoutDashboard,
+  ListPlus,
+  MapPin,
+  MessageCircleMore,
+  Phone,
+  Square,
+  Star,
+} from 'lucide-react'
 import { notFound } from 'next/navigation'
 
 import { LeadForm } from '@/components/features/lead-form'
@@ -11,8 +21,10 @@ import { LocaleSwitcher } from '@/components/primitives/locale-switcher'
 import { ListingBadge } from '@/components/primitives/listing-badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { getLocalizedListing, isLocale, listingPageContent, locales, type Locale } from '@/lib/i18n'
-import { getListingBySlug, sampleListings } from '@/lib/mock-data'
+import { isLocale, locales } from '@/i18n/routing'
+import { getLocalizedListing } from '@/lib/listing-translations'
+import { getLocaleMessages } from '@/lib/messages'
+import { getListingBySlug, listListingSlugs } from '@/lib/services/listing-service'
 import { buildAbsoluteUrl, buildLocalizedPath, getLanguageAlternates } from '@/lib/seo'
 import {
   formatArea,
@@ -29,15 +41,9 @@ interface LocalizedListingPageProps {
   }>
 }
 
-const trafficSourceLabels: Record<string, Record<Locale, string>> = {
-  Zalo: { vi: 'Zalo', en: 'Zalo' },
-  Facebook: { vi: 'Facebook', en: 'Facebook' },
-  QR: { vi: 'QR', en: 'QR' },
-  Direct: { vi: 'Trực tiếp', en: 'Direct' },
-}
-
-export function generateStaticParams() {
-  return locales.flatMap((locale) => sampleListings.map((listing) => ({ locale, slug: listing.slug })))
+export async function generateStaticParams() {
+  const slugs = await listListingSlugs()
+  return locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })))
 }
 
 export async function generateMetadata({ params }: LocalizedListingPageProps): Promise<Metadata> {
@@ -47,11 +53,12 @@ export async function generateMetadata({ params }: LocalizedListingPageProps): P
     return {}
   }
 
-  const listing = getListingBySlug(slug)
+  const pageMessages = getLocaleMessages(locale).ListingPage
+  const listing = await getListingBySlug(slug)
 
   if (!listing) {
     return {
-      title: locale === 'vi' ? 'Tin đăng không tồn tại | ListingKit' : 'Listing not found | ListingKit',
+      title: pageMessages.notFoundTitle,
       robots: {
         index: false,
         follow: false,
@@ -95,15 +102,50 @@ export default async function LocalizedListingPage({ params }: LocalizedListingP
     notFound()
   }
 
-  const listing = getListingBySlug(slug)
+  const listing = await getListingBySlug(slug)
 
   if (!listing) {
     notFound()
   }
 
-  const content = listingPageContent[locale]
+  const content = getLocaleMessages(locale).ListingPage
   const localized = getLocalizedListing(listing, locale)
   const canonicalPath = buildLocalizedPath(locale, `/l/${listing.slug}`)
+  const hasDirectPhone = Boolean(listing.agent.phone.trim())
+  const metricItems = [
+    {
+      key: 'area',
+      icon: <Square className="mb-3 h-5 w-5 text-sky-700" />,
+      label: content.metrics.area,
+      value: formatArea(listing.area, locale),
+    },
+    ...(typeof listing.bedrooms === 'number'
+      ? [
+          {
+            key: 'bedrooms',
+            icon: <BedDouble className="mb-3 h-5 w-5 text-sky-700" />,
+            label: content.metrics.bedrooms,
+            value: String(listing.bedrooms),
+          },
+        ]
+      : []),
+    ...(typeof listing.bathrooms === 'number'
+      ? [
+          {
+            key: 'bathrooms',
+            icon: <Bath className="mb-3 h-5 w-5 text-sky-700" />,
+            label: content.metrics.bathrooms,
+            value: String(listing.bathrooms),
+          },
+        ]
+      : []),
+    {
+      key: 'views',
+      icon: <Star className="mb-3 h-5 w-5 text-sky-700" />,
+      label: content.metrics.views,
+      value: formatCompactNumber(listing.viewCount, locale),
+    },
+  ]
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -137,7 +179,10 @@ export default async function LocalizedListingPage({ params }: LocalizedListingP
       '@type': 'Offer',
       price: listing.price,
       priceCurrency: 'VND',
-      availability: listing.status === 'active' ? 'https://schema.org/InStock' : 'https://schema.org/LimitedAvailability',
+      availability:
+        listing.status === 'active'
+          ? 'https://schema.org/InStock'
+          : 'https://schema.org/LimitedAvailability',
       url: buildAbsoluteUrl(canonicalPath),
     },
   }
@@ -149,7 +194,7 @@ export default async function LocalizedListingPage({ params }: LocalizedListingP
 
       <main lang={locale} className="pb-16">
         <section className="border-b border-(--border) bg-white">
-          <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-5 lg:px-8 md:flex-row md:items-center md:justify-between">
+          <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-5 md:flex-row md:items-center md:justify-between lg:px-8">
             <div>
               <Link href={`/${locale}`} className="text-sm font-medium text-slate-950">
                 ListingKit
@@ -205,11 +250,10 @@ export default async function LocalizedListingPage({ params }: LocalizedListingP
               <p className="text-3xl font-semibold text-slate-950">{formatCurrency(listing.price, locale)}</p>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-4">
-              <MetricCard icon={<Square className="mb-3 h-5 w-5 text-sky-700" />} label={content.metrics.area} value={formatArea(listing.area, locale)} />
-              <MetricCard icon={<BedDouble className="mb-3 h-5 w-5 text-sky-700" />} label={content.metrics.bedrooms} value={String(listing.bedrooms)} />
-              <MetricCard icon={<Bath className="mb-3 h-5 w-5 text-sky-700" />} label={content.metrics.bathrooms} value={String(listing.bathrooms)} />
-              <MetricCard icon={<Star className="mb-3 h-5 w-5 text-sky-700" />} label={content.metrics.views} value={formatCompactNumber(listing.viewCount, locale)} />
+            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+              {metricItems.map((item) => (
+                <MetricCard key={item.key} icon={item.icon} label={item.label} value={item.value} />
+              ))}
             </div>
 
             <div className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
@@ -275,7 +319,7 @@ export default async function LocalizedListingPage({ params }: LocalizedListingP
                   {listing.sourceBreakdown.map((item) => (
                     <div key={item.label} className="space-y-2">
                       <div className="flex items-center justify-between text-sm text-slate-600">
-                        <span>{trafficSourceLabels[item.label]?.[locale] ?? item.label}</span>
+                        <span>{getTrafficSourceLabel(item.label, content)}</span>
                         <span>{item.value}%</span>
                       </div>
                       <progress
@@ -307,23 +351,39 @@ export default async function LocalizedListingPage({ params }: LocalizedListingP
                   />
                   <div>
                     <p className="text-lg font-semibold text-white">{listing.agent.name}</p>
-                    <p className="text-sm text-slate-300">{listing.agent.company}</p>
+                    <p className="text-sm text-slate-300">
+                      {listing.agent.company || content.agentCompanyFallback}
+                    </p>
                   </div>
                 </div>
 
+                <div className="grid gap-3 rounded-3xl border border-white/10 bg-white/5 p-4">
+                  <AgentInfoItem label={content.agentCompany} value={listing.agent.company || content.agentCompanyFallback} />
+                  <AgentInfoItem label={content.agentPhone} value={listing.agent.phone || content.agentPhoneFallback} />
+                  <AgentInfoItem label={content.agentBio} value={listing.agent.bio || content.agentBioFallback} multiline />
+                </div>
+
                 <div className="grid gap-3">
-                  <a href={`tel:${listing.agent.phone}`}>
-                    <Button className="w-full" variant="secondary">
-                      {content.callNow} {listing.agent.phone}
-                      <Phone className="h-4 w-4" />
-                    </Button>
-                  </a>
-                  <a href={`https://zalo.me/${listing.agent.phone}`} target="_blank" rel="noreferrer">
-                    <Button className="w-full">
-                      {content.chatZalo}
-                      <MessageCircleMore className="h-4 w-4" />
-                    </Button>
-                  </a>
+                  {hasDirectPhone ? (
+                    <>
+                      <a href={`tel:${listing.agent.phone}`}>
+                        <Button className="w-full" variant="secondary">
+                          {content.callNow} {listing.agent.phone}
+                          <Phone className="h-4 w-4" />
+                        </Button>
+                      </a>
+                      <a href={`https://zalo.me/${listing.agent.phone}`} target="_blank" rel="noreferrer">
+                        <Button className="w-full">
+                          {content.chatZalo}
+                          <MessageCircleMore className="h-4 w-4" />
+                        </Button>
+                      </a>
+                    </>
+                  ) : (
+                    <div className="rounded-2xl border border-dashed border-white/15 px-4 py-3 text-sm leading-6 text-slate-300">
+                      {content.contactUnavailable}
+                    </div>
+                  )}
                   <QrDownloadButton slug={listing.slug} locale={locale} label={content.downloadQr} />
                 </div>
               </CardContent>
@@ -337,10 +397,32 @@ export default async function LocalizedListingPage({ params }: LocalizedListingP
   )
 }
 
+function getTrafficSourceLabel(
+  label: string,
+  content: ReturnType<typeof getLocaleMessages>['ListingPage']
+) {
+  return content.trafficSources[label as keyof typeof content.trafficSources] ?? label
+}
+
 interface MetricCardProps {
   icon: ReactNode
   label: string
   value: string
+}
+
+interface AgentInfoItemProps {
+  label: string
+  value: string
+  multiline?: boolean
+}
+
+function AgentInfoItem({ label, value, multiline = false }: AgentInfoItemProps) {
+  return (
+    <div className="space-y-1">
+      <p className="text-xs font-medium tracking-[0.18em] text-slate-400 uppercase">{label}</p>
+      <p className={multiline ? 'text-sm leading-6 text-white' : 'text-sm text-white'}>{value}</p>
+    </div>
+  )
 }
 
 function MetricCard({ icon, label, value }: MetricCardProps) {

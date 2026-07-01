@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation'
 
-import { defaultLocale } from '@/lib/i18n'
+import { defaultLocale } from '@/i18n/routing'
 import { buildLocalizedPath } from '@/lib/seo'
 
 interface LegacyListingPageProps {

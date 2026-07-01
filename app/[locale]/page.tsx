@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { HomePage } from '@/components/features/home-page'
-import { defaultLocale, homeContent, isLocale, locales, type Locale } from '@/lib/i18n'
-import { sampleListings } from '@/lib/mock-data'
+import { defaultLocale, isLocale, locales, type Locale } from '@/i18n/routing'
+import { getLocaleMessages } from '@/lib/messages'
+import { getFeaturedListing, listHomepageListings } from '@/lib/services/listing-service'
 import { buildAbsoluteUrl, buildLocalizedPath, getLanguageAlternates } from '@/lib/seo'
 
 interface LocalizedHomePageProps {
@@ -23,14 +24,12 @@ export async function generateMetadata({ params }: LocalizedHomePageProps): Prom
     return {}
   }
 
-  const content = homeContent[locale]
+  const content = getLocaleMessages(locale).HomePage
   const canonicalPath = buildLocalizedPath(locale)
+  const featuredListing = await getFeaturedListing()
 
   return {
-    title:
-      locale === 'vi'
-        ? 'ListingKit | Trang giới thiệu bất động sản giúp môi giới chốt khách nhanh hơn'
-        : 'ListingKit | Property pages that help agents win trust and book more viewings',
+    title: content.metaTitle,
     description: content.heroDescription,
     alternates: {
       canonical: canonicalPath,
@@ -39,23 +38,17 @@ export async function generateMetadata({ params }: LocalizedHomePageProps): Prom
     openGraph: {
       type: 'website',
       url: buildAbsoluteUrl(canonicalPath),
-      title:
-        locale === 'vi'
-          ? 'ListingKit | Trang giới thiệu bất động sản giúp môi giới chốt khách nhanh hơn'
-          : 'ListingKit | Property pages that help agents win trust and book more viewings',
+      title: content.metaTitle,
       description: content.heroDescription,
-      images: [sampleListings[0].images[0]],
+      images: featuredListing ? [featuredListing.images[0]] : [],
       locale: locale === 'vi' ? 'vi_VN' : 'en_US',
       alternateLocale: locale === 'vi' ? ['en_US'] : ['vi_VN'],
     },
     twitter: {
       card: 'summary_large_image',
-      title:
-        locale === 'vi'
-          ? 'ListingKit | Trang giới thiệu bất động sản giúp môi giới chốt khách nhanh hơn'
-          : 'ListingKit | Property pages that help agents win trust and book more viewings',
+      title: content.metaTitle,
       description: content.heroDescription,
-      images: [sampleListings[0].images[0]],
+      images: featuredListing ? [featuredListing.images[0]] : [],
     },
   }
 }
@@ -67,7 +60,13 @@ export default async function LocalizedHomePage({ params }: LocalizedHomePagePro
     notFound()
   }
 
-  const content = homeContent[locale]
+  const content = getLocaleMessages(locale).HomePage
+  const [featuredListing, homepageListings] = await Promise.all([getFeaturedListing(), listHomepageListings()])
+
+  if (!featuredListing) {
+    notFound()
+  }
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -106,7 +105,7 @@ export default async function LocalizedHomePage({ params }: LocalizedHomePagePro
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <HomePage locale={locale} />
+      <HomePage locale={locale} featuredListing={featuredListing} listings={homepageListings} />
     </>
   )
 }

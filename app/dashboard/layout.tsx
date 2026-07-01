@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { requireAuthenticatedUser } from '@/lib/services/auth-service'
+
 export const metadata: Metadata = {
   robots: {
     index: false,
@@ -7,6 +9,10 @@ export const metadata: Metadata = {
   },
 }
 
-export default function DashboardLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function DashboardLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
+  await requireAuthenticatedUser('/dashboard')
+
   return children
 }

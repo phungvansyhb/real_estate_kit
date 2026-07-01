@@ -1,10 +1,10 @@
 import type { MetadataRoute } from 'next'
 
-import { locales } from '@/lib/i18n'
-import { sampleListings } from '@/lib/mock-data'
+import { locales } from '@/i18n/routing'
 import { buildAbsoluteUrl, buildLocalizedPath } from '@/lib/seo'
+import { listPublicListings } from '@/lib/services/listing-service'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const homeEntries = locales.map((locale) => ({
     url: buildAbsoluteUrl(buildLocalizedPath(locale)),
     lastModified: new Date(),
@@ -12,7 +12,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: locale === 'vi' ? 1 : 0.9,
   }))
 
-  const listingEntries = sampleListings.flatMap((listing) =>
+  const listings = await listPublicListings()
+
+  const listingEntries = listings.flatMap((listing) =>
     locales.map((locale) => ({
       url: buildAbsoluteUrl(buildLocalizedPath(locale, `/l/${listing.slug}`)),
       lastModified: new Date(listing.createdAt),

@@ -1,6 +1,6 @@
 import QRCode from 'qrcode'
 
-import { defaultLocale, isLocale } from '@/lib/i18n'
+import { defaultLocale, isLocale } from '@/i18n/routing'
 import { buildLocalizedPath } from '@/lib/seo'
 
 export async function GET(

@@ -1,0 +1,393 @@
+{
+  "LocaleSwitcher": {
+    "vi": "VI",
+    "en": "EN"
+  },
+  "HomePage": {
+    "brandTagline": "Dành cho môi giới bất động sản hiện đại",
+    "metaTitle": "ListingKit | Trang giới thiệu bất động sản giúp môi giới chốt khách nhanh hơn",
+    "nav": {
+      "features": "Tính năng",
+      "reviews": "Đánh giá",
+      "pricing": "Bảng giá",
+      "dashboard": "Bảng điều khiển",
+      "login": "Đăng nhập",
+      "createListing": "Tạo tin đăng"
+    },
+    "badge": "Trang riêng cho từng căn • Chia sẻ đẹp • Chốt khách nhanh",
+    "heroTitle": "Mỗi căn nhà xứng đáng có một trang giới thiệu thật thuyết phục.",
+    "heroDescription": "Tập hợp hình ảnh, thông tin nổi bật, bản đồ, nút liên hệ và lịch hẹn vào một trang gọn đẹp để gửi khách ngay trên Zalo, Facebook hoặc mã QR ngoài thực địa. Khách hiểu căn nhà nhanh hơn, còn bạn trông chuyên nghiệp hơn ngay từ lần chạm đầu tiên.",
+    "primaryCta": "Tạo trang cho căn đầu tiên",
+    "secondaryCta": "Xem trang mẫu",
+    "launchSteps": [
+      "Điền thông tin căn nhà, giá bán, diện tích và điểm nổi bật chỉ trong vài phút.",
+      "Nhận ngay một trang giới thiệu đẹp mắt, dễ đọc và sẵn sàng gửi khách.",
+      "Chia sẻ linh hoạt cho khách Việt hoặc khách quốc tế với phiên bản ngôn ngữ phù hợp."
+    ],
+    "snapshotTitle": "Bức tranh kinh doanh trong ngày",
+    "snapshotDescription": "Theo dõi căn nào đang thu hút nhiều lượt xem, khách đến từ đâu và tin đăng nào đang tạo ra nhiều lịch hẹn nhất để ưu tiên tư vấn đúng lúc.",
+    "snapshotStats": [
+      {
+        "label": "Tin đăng đang hoạt động",
+        "value": "12",
+        "description": "3 tin mới được đăng trong 7 ngày qua"
+      },
+      {
+        "label": "Tổng lượt xem",
+        "value": "3.4K",
+        "description": "Tăng 18% so với tuần trước"
+      },
+      {
+        "label": "Khách quan tâm mới",
+        "value": "29",
+        "description": "6 khách đến từ mã QR ngoài thực địa"
+      },
+      {
+        "label": "Tỷ lệ chuyển đổi",
+        "value": "11.8%",
+        "description": "Tỷ lệ lượt xem chuyển thành gửi biểu mẫu trong tuần này"
+      }
+    ],
+    "featuresLabel": "Điểm mạnh nổi bật",
+    "featuresTitle": "Một trang bán hàng giúp bạn giới thiệu căn nhà chỉn chu hơn và chốt cuộc hẹn nhanh hơn.",
+    "featuresDescription": "Thay vì gửi rời rạc ảnh, mô tả và vị trí qua nhiều tin nhắn, bạn có một trang tập trung mọi thứ khách cần để ra quyết định xem nhà.",
+    "sampleListingsLabel": "Tin đăng nổi bật",
+    "sampleListingsTitle": "Khám phá những trang giới thiệu được thiết kế theo đúng bối cảnh bán hàng thực tế.",
+    "openDashboard": "Xem tổng quan tin đăng",
+    "reviewsLabel": "Cảm nhận người dùng",
+    "reviewsTitle": "Những phản hồi từ môi giới sau khi gửi khách trang giới thiệu riêng cho từng căn.",
+    "reviewsDescription": "Khi thông tin được trình bày rõ ràng và đẹp mắt, khách dễ tin tưởng hơn và môi giới cũng bớt mất thời gian giải thích lặp lại.",
+    "pricingLabel": "Bảng giá",
+    "pricingTitle": "Chọn gói phù hợp với số lượng tin đăng và nhịp bán hàng của bạn.",
+    "pricingLimit": "Giới hạn",
+    "recommended": "Khuyên dùng",
+    "nextLabel": "Sẵn sàng bứt tốc",
+    "nextTitle": "Đăng một lần, dùng ở mọi điểm chạm với khách hàng.",
+    "nextDescription": "Từ tin nhắn Zalo, bài đăng Facebook đến banner ngoài thực địa, bạn luôn có một đường dẫn chỉn chu để khách xem nhà, đọc thông tin và để lại lịch hẹn ngay.",
+    "goToDashboard": "Mở bảng điều khiển",
+    "continueBuild": "Tạo tin đăng mới",
+    "reviews": [
+      {
+        "name": "Trần Hoàng Phúc",
+        "role": "Môi giới căn hộ cao cấp • Quận 2",
+        "quote": "Tôi gửi đường dẫn tin đăng cho khách nước ngoài và họ xem rất dễ. Trang trông chuyên nghiệp hơn hẳn so với gửi album ảnh rời qua Zalo."
+      },
+      {
+        "name": "Nguyễn Thảo Vy",
+        "role": "Trưởng nhóm • Nhà phố khu Đông",
+        "quote": "Mã QR in trên banner giúp khách đi ngang có thể mở trang ngay. Khách để lại thông tin rõ ràng hơn so với nhắn tin thủ công."
+      },
+      {
+        "name": "Lê Minh Quân",
+        "role": "Môi giới cho thuê • Thảo Điền",
+        "quote": "Tôi thích nhất là mỗi căn có một trang giới thiệu riêng, có mô tả dễ đọc và rất hợp để gửi cho khách thuê nước ngoài."
+      }
+    ],
+    "valueProps": [
+      {
+        "title": "Trang giới thiệu cho từng căn",
+        "description": "Mỗi tin đăng có đường dẫn riêng, dễ chia sẻ qua Zalo, Facebook, email hoặc mã QR."
+      },
+      {
+        "title": "Thông tin SEO theo từng tin",
+        "description": "Tiêu đề, mô tả, canonical, Open Graph và sitemap được chuẩn hóa cho trang công khai."
+      },
+      {
+        "title": "Song ngữ Việt / Anh",
+        "description": "Hỗ trợ đường dẫn riêng cho từng ngôn ngữ để phục vụ cả khách nội địa và khách quốc tế."
+      },
+      {
+        "title": "Biểu mẫu liên hệ rõ ràng",
+        "description": "Khách để lại thông tin xem nhà ngay trên trang, giúp môi giới theo sát nhanh hơn."
+      }
+    ],
+    "pricingPlans": {
+      "free": {
+        "name": "Free",
+        "priceLabel": "$0",
+        "description": "Dành cho môi giới muốn thử nhanh trước khi triển khai thật.",
+        "listingLimit": "3 tin đăng",
+        "features": [
+          {
+            "name": "Trang giới thiệu công khai",
+            "included": true
+          },
+          {
+            "name": "Mã QR cho từng tin đăng",
+            "included": true
+          },
+          {
+            "name": "Biểu mẫu khách quan tâm cơ bản",
+            "included": true
+          },
+          {
+            "name": "AI viết mô tả",
+            "included": false
+          },
+          {
+            "name": "Phân tích cơ bản",
+            "included": false
+          }
+        ]
+      },
+      "starter": {
+        "name": "Starter",
+        "priceLabel": "$19 / tháng",
+        "description": "Gói chính cho môi giới cá nhân muốn ra tin chỉn chu mỗi ngày.",
+        "listingLimit": "20 tin đăng",
+        "features": [
+          {
+            "name": "Không watermark",
+            "included": true
+          },
+          {
+            "name": "AI mô tả tiếng Việt",
+            "included": true
+          },
+          {
+            "name": "Phân tích lượt xem và nguồn khách",
+            "included": true
+          },
+          {
+            "name": "Email báo khách quan tâm",
+            "included": true
+          },
+          {
+            "name": "Tên miền riêng",
+            "included": false
+          }
+        ]
+      },
+      "pro": {
+        "name": "Pro",
+        "priceLabel": "$49 / tháng",
+        "description": "Cho nhóm môi giới nhỏ cần mở rộng số lượng tin và giữ nhận diện đồng bộ.",
+        "listingLimit": "Không giới hạn",
+        "features": [
+          {
+            "name": "Không giới hạn tin đăng",
+            "included": true
+          },
+          {
+            "name": "Nhóm 5 người",
+            "included": true
+          },
+          {
+            "name": "Tên miền riêng",
+            "included": true
+          },
+          {
+            "name": "Hỗ trợ ưu tiên",
+            "included": true
+          },
+          {
+            "name": "Phân tích nâng cao",
+            "included": true
+          }
+        ]
+      }
+    }
+  },
+  "ListingPage": {
+    "notFoundTitle": "Tin đăng không tồn tại | ListingKit",
+    "publicLabel": "Thông tin bất động sản",
+    "viewDashboard": "Bảng điều khiển",
+    "createListing": "Tạo tin đăng",
+    "propertyDescription": "Mô tả bất động sản",
+    "propertyDescriptionHint": "Phần tóm tắt giúp khách nắm nhanh những điểm đáng quan tâm trước khi hẹn lịch xem nhà.",
+    "amenities": "Tiện ích nổi bật",
+    "traffic": "Nguồn khách quan tâm",
+    "trafficHint": "Cho bạn góc nhìn nhanh về các kênh đang kéo khách đến trang của căn này.",
+    "agentInfo": "Thông tin môi giới",
+    "agentHint": "Khách có thể gọi điện, nhắn Zalo hoặc lưu mã QR để xem lại thông tin bất cứ lúc nào.",
+    "agentCompany": "Đơn vị đồng hành",
+    "agentPhone": "Số điện thoại",
+    "agentBio": "Giới thiệu",
+    "agentCompanyFallback": "Môi giới đang cập nhật tên công ty hoặc đội nhóm.",
+    "agentPhoneFallback": "Số điện thoại sẽ được bổ sung sớm.",
+    "agentBioFallback": "Môi giới đang cập nhật thêm phần giới thiệu để khách hiểu rõ hơn về phong cách làm việc và khu vực phụ trách.",
+    "contactUnavailable": "Môi giới chưa bật thông tin liên hệ trực tiếp trên trang này.",
+    "callNow": "Gọi ngay",
+    "chatZalo": "Nhắn Zalo",
+    "downloadQr": "Tải mã QR",
+    "metrics": {
+      "area": "Diện tích",
+      "bedrooms": "Phòng ngủ",
+      "bathrooms": "Phòng tắm",
+      "views": "Lượt xem"
+    },
+    "trafficSources": {
+      "Zalo": "Zalo",
+      "Facebook": "Facebook",
+      "QR": "QR",
+      "Direct": "Trực tiếp"
+    }
+  },
+  "ListingCard": {
+    "viewLandingPage": "Xem trang giới thiệu",
+    "downloadQr": "Tải mã QR"
+  },
+  "LeadForm": {
+    "leadTitle": "Đặt lịch xem nhà",
+    "leadDescription": "Để lại thông tin để môi giới chủ động liên hệ và sắp xếp lịch xem phù hợp cho bạn.",
+    "fullName": "Họ và tên",
+    "phone": "Số điện thoại",
+    "preferredTime": "Khung giờ mong muốn",
+    "note": "Ghi chú thêm",
+    "submit": "Gửi yêu cầu xem nhà",
+    "submitting": "Đang gửi...",
+    "success": "Yêu cầu xem nhà đã được ghi nhận. Môi giới sẽ sớm liên hệ để xác nhận lịch hẹn.",
+    "genericError": "Có lỗi kết nối. Vui lòng thử lại sau.",
+    "namePlaceholder": "Nguyễn Văn A",
+    "timePlaceholder": "Ví dụ: 19h tối thứ Bảy",
+    "notePlaceholder": "Tôi muốn xem thêm pháp lý và phí quản lý"
+  },
+  "Api": {
+    "leads": {
+      "invalidPayload": "Dữ liệu khách quan tâm không hợp lệ.",
+      "success": "Yêu cầu xem nhà đã được ghi nhận. Môi giới có thể liên hệ lại để xác nhận lịch hẹn với bạn.",
+      "errors": {
+        "name": "Vui lòng nhập họ tên hợp lệ.",
+        "phone": "Số điện thoại không hợp lệ.",
+        "phoneDigits": "Số điện thoại chỉ gồm chữ số."
+      }
+    }
+  },
+  "Auth": {
+    "label": "Tài khoản môi giới",
+    "backHome": "Về trang chủ",
+    "benefits": [
+      "Quản lý tin đăng và lịch hẹn của bạn trong một nơi gọn gàng.",
+      "Giữ mọi trang giới thiệu sẵn sàng để gửi khách bất cứ lúc nào.",
+      "Dễ dàng quay lại chỉnh thông tin, tạo tin mới và theo dõi khách quan tâm."
+    ],
+    "fields": {
+      "email": "Email",
+      "password": "Mật khẩu"
+    },
+    "login": {
+      "metaTitle": "Đăng nhập | ListingKit",
+      "title": "Đăng nhập để tiếp tục chăm khách và quản lý tin đăng của bạn.",
+      "description": "Truy cập lại không gian làm việc để tạo trang giới thiệu mới, theo dõi khách quan tâm và cập nhật thông tin căn nhà thật nhanh.",
+      "formTitle": "Đăng nhập tài khoản",
+      "formDescription": "Nhập email và mật khẩu bạn đã dùng để bắt đầu làm việc.",
+      "submit": "Đăng nhập",
+      "submitting": "Đang đăng nhập...",
+      "switchText": "Bạn chưa có tài khoản?",
+      "switchCta": "Tạo tài khoản mới"
+    },
+    "signup": {
+      "metaTitle": "Tạo tài khoản | ListingKit",
+      "title": "Tạo tài khoản để bắt đầu xây dựng trang giới thiệu cho từng căn nhà.",
+      "description": "Mở tài khoản trong vài phút để lưu tin đăng, tạo mô tả nhanh và sẵn sàng gửi khách một đường dẫn thật chuyên nghiệp.",
+      "formTitle": "Tạo tài khoản mới",
+      "formDescription": "Dùng email làm việc của bạn để bắt đầu lưu tin và quản lý khách quan tâm.",
+      "passwordHint": "Mật khẩu nên có ít nhất 8 ký tự để tài khoản an toàn hơn.",
+      "submit": "Tạo tài khoản",
+      "submitting": "Đang tạo tài khoản...",
+      "switchText": "Bạn đã có tài khoản?",
+      "switchCta": "Đăng nhập ngay"
+    },
+    "errors": {
+      "invalid-form": "Vui lòng kiểm tra lại email và mật khẩu trước khi tiếp tục.",
+      "invalid-credentials": "Email hoặc mật khẩu chưa đúng. Vui lòng thử lại.",
+      "signup-failed": "Chưa thể tạo tài khoản lúc này. Vui lòng thử lại sau ít phút.",
+      "invalid-session": "Phiên đăng nhập không hợp lệ hoặc đã hết hạn. Vui lòng đăng nhập lại."
+    },
+    "messages": {
+      "check-email": "Tài khoản đã được tạo. Nếu hệ thống yêu cầu xác nhận email, vui lòng kiểm tra hộp thư để hoàn tất đăng nhập.",
+      "signed-out": "Bạn đã đăng xuất khỏi tài khoản thành công."
+    }
+  },
+  "Dashboard": {
+    "label": "Bảng điều khiển",
+    "title": "Không gian làm việc của môi giới",
+    "description": "Theo dõi hiệu quả tin đăng, nắm các chỉ số quan trọng và tạo tin mới thật nhanh ngay trong một nơi.",
+    "actions": {
+      "createListing": "Tạo tin đăng mới",
+      "profile": "Hồ sơ môi giới",
+      "backHome": "Về trang giới thiệu",
+      "signOut": "Đăng xuất"
+    },
+    "recentListings": {
+      "title": "Tin đăng gần đây",
+      "description": "Theo dõi nhanh các tin đang chạy tốt để ưu tiên chăm khách và cập nhật nội dung khi cần."
+    },
+    "aiCard": {
+      "title": "Soạn mô tả với AI",
+      "description": "Tạo mô tả bất động sản từ thông tin bạn nhập và chỉnh lại ngay trên màn hình tạo tin.",
+      "cta": "Mở màn tạo tin"
+    },
+    "ready": {
+      "title": "Các phần đã sẵn sàng",
+      "items": [
+        "Trang chủ giới thiệu dịch vụ và bảng giá rõ ràng.",
+        "Bảng điều khiển hiển thị KPI và thẻ tin đăng.",
+        "Biểu mẫu tạo tin kèm gợi ý mô tả bằng AI.",
+        "Trang tin công khai, tải mã QR và nhận yêu cầu xem nhà."
+      ]
+    }
+  },
+  "CreateListingPage": {
+    "label": "Tạo tin đăng",
+    "title": "Tạo tin đăng linh hoạt cho nhiều loại bất động sản",
+    "description": "Chọn đúng loại hình như đất, nhà, chung cư, biệt thự hoặc shophouse; sau đó nhập nhu cầu bán hoặc cho thuê để hệ thống gợi ý đúng nhóm thông tin cần điền.",
+    "backToDashboard": "Quay lại bảng điều khiển"
+  },
+  "DashboardProfile": {
+    "label": "Hồ sơ môi giới",
+    "title": "Cập nhật thông tin cá nhân và ảnh đại diện",
+    "description": "Hoàn thiện hồ sơ để khách dễ tin tưởng hơn khi xem trang giới thiệu, gọi điện hoặc quét mã QR của bạn.",
+    "backToDashboard": "Về bảng điều khiển",
+    "feedback": {
+      "success": "Hồ sơ của bạn đã được cập nhật thành công.",
+      "invalidForm": "Vui lòng kiểm tra lại họ tên và thông tin vừa nhập.",
+      "invalidAvatarType": "Ảnh đại diện chỉ hỗ trợ định dạng JPG, PNG hoặc WebP.",
+      "avatarTooLarge": "Ảnh đại diện tối đa 5MB để tải lên nhanh và hiển thị ổn định.",
+      "updateFailed": "Chưa thể cập nhật hồ sơ lúc này. Bạn thử lại sau ít phút nhé."
+    },
+    "preview": {
+      "title": "Xem trước hồ sơ công khai",
+      "description": "Đây là phần khách thường thấy đầu tiên khi mở trang giới thiệu của bạn.",
+      "companyFallback": "Bổ sung tên công ty hoặc đội nhóm để trang giới thiệu trông chuyên nghiệp hơn",
+      "planLabel": "Gói",
+      "contactTitle": "Thông tin liên hệ",
+      "contactFallback": "Thêm số điện thoại để khách gọi trực tiếp ngay từ trang giới thiệu.",
+      "bioTitle": "Giới thiệu công khai",
+      "bioFallback": "Thêm vài dòng ngắn về khu vực bạn phụ trách, phong cách làm việc hoặc thế mạnh tư vấn.",
+      "accountTitle": "Tài khoản đăng nhập",
+      "accountFallback": "Email tài khoản sẽ hiển thị tại đây."
+    },
+    "form": {
+      "title": "Thông tin hồ sơ",
+      "description": "Cập nhật ảnh đại diện, thông tin liên hệ và phần giới thiệu ngắn để khách cảm thấy tin tưởng hơn trước khi gọi hoặc nhắn cho bạn.",
+      "avatarHint": "Tải ảnh chân dung rõ mặt, tỷ lệ vuông sẽ đẹp nhất.",
+      "avatarFormats": "Hỗ trợ JPG, PNG, WebP. Dung lượng tối đa 5MB.",
+      "selectNewImage": "Chọn ảnh mới",
+      "bioLimit": "Tối đa 512 ký tự",
+      "bioHint": "Phần này sẽ hiển thị trên trang công khai của bạn để khách hiểu thêm về kinh nghiệm, khu vực phụ trách và phong cách tư vấn.",
+      "footerHint": "Sau khi lưu, ảnh và thông tin mới sẽ được dùng cho các trang giới thiệu bạn xuất bản tiếp theo.",
+      "save": "Lưu hồ sơ",
+      "fields": {
+        "avatar": "Ảnh đại diện",
+        "name": "Họ và tên",
+        "phone": "Số điện thoại",
+        "company": "Công ty / đội nhóm",
+        "email": "Email đăng nhập",
+        "bio": "Giới thiệu công khai"
+      },
+      "placeholders": {
+        "name": "Ví dụ: Nguyễn Minh An",
+        "phone": "Ví dụ: 0901234567",
+        "company": "Ví dụ: An Gia Boutique Realty",
+        "bio": "Ví dụ: Tôi chuyên nhà phố và căn hộ khu Đông TP.HCM, ưu tiên tư vấn rõ pháp lý, dòng tiền và lộ trình chốt giao dịch gọn cho khách mua ở lẫn đầu tư."
+      }
+    }
+  },
+  "NotFound": {
+    "title": "Không tìm thấy tin đăng bạn đang mở.",
+    "description": "Đường dẫn có thể đã thay đổi hoặc tin đăng này hiện không còn hiển thị.",
+    "backHome": "Về trang chủ",
+    "openDashboard": "Mở bảng điều khiển"
+  }
+}

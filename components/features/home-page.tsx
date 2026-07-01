@@ -1,124 +1,40 @@
 import Link from 'next/link'
-import { ArrowRight, BarChart3, Check, House, LayoutDashboard, ListPlus, Search, Sparkles, Users } from 'lucide-react'
+import {
+  ArrowRight,
+  BarChart3,
+  Check,
+  House,
+  LayoutDashboard,
+  ListPlus,
+  Search,
+  Sparkles,
+  Users,
+} from 'lucide-react'
 
 import { ListingCard } from '@/components/features/listing-card'
 import { LocaleSwitcher } from '@/components/primitives/locale-switcher'
 import { SectionLabel } from '@/components/primitives/section-label'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import type { Locale } from '@/lib/i18n'
-import { homeContent } from '@/lib/i18n'
-import { pricingPlans, sampleListings } from '@/lib/mock-data'
-import type { PricingPlan } from '@/types/listing'
+import type { Locale } from '@/i18n/routing'
+import { getLocaleMessages } from '@/lib/messages'
+import { pricingPlans } from '@/lib/mock-data'
+import type { Listing, PricingPlan } from '@/types/listing'
 
 const valuePropIcons = [House, Sparkles, Users, BarChart3] as const
 
-function getLocalizedPricingPlan(plan: PricingPlan, locale: Locale): PricingPlan {
-  if (locale === 'vi') {
-    return plan
-  }
-
-  const translations: Record<PricingPlan['id'], Omit<PricingPlan, 'id' | 'highlighted'>> = {
-    free: {
-      name: 'Free',
-      priceLabel: '$0',
-      description: 'For agents who want a simple way to publish their first few property pages.',
-      listingLimit: '3 listings',
-      features: [
-        { name: 'Public landing pages', included: true },
-        { name: 'QR code for each listing', included: true },
-        { name: 'Basic lead form', included: true },
-        { name: 'AI description generator', included: false },
-        { name: 'Basic analytics', included: false },
-      ],
-    },
-    starter: {
-      name: 'Starter',
-      priceLabel: '$19 / month',
-      description: 'The core plan for solo agents publishing polished listings every week.',
-      listingLimit: '20 listings',
-      features: [
-        { name: 'No watermark', included: true },
-        { name: 'Vietnamese AI descriptions', included: true },
-        { name: 'View and traffic analytics', included: true },
-        { name: 'Lead email notifications', included: true },
-        { name: 'Custom domain', included: false },
-      ],
-    },
-    pro: {
-      name: 'Pro',
-      priceLabel: '$49 / month',
-      description: 'For small teams that need to scale volume and maintain a consistent brand.',
-      listingLimit: 'Unlimited',
-      features: [
-        { name: 'Unlimited listings', included: true },
-        { name: 'Team of 5 users', included: true },
-        { name: 'Custom domain', included: true },
-        { name: 'Priority support', included: true },
-        { name: 'Advanced analytics', included: true },
-      ],
-    },
-  }
-
-  return {
-    ...plan,
-    ...translations[plan.id],
-  }
-}
-
 interface HomePageProps {
   locale: Locale
+  featuredListing: Listing
+  listings: Listing[]
 }
 
-export function HomePage({ locale }: HomePageProps) {
-  const content = homeContent[locale]
-  const snapshotStats =
-    locale === 'vi'
-      ? [
-          {
-            label: 'Tin đăng đang hoạt động',
-            value: '12',
-            description: '3 tin mới được đăng trong 7 ngày qua',
-          },
-          {
-            label: 'Tổng lượt xem',
-            value: '3.4K',
-            description: 'Tăng 18% so với tuần trước',
-          },
-          {
-            label: 'Khách quan tâm mới',
-            value: '29',
-            description: '6 khách đến từ mã QR ngoài thực địa',
-          },
-          {
-            label: 'Tỷ lệ chuyển đổi',
-            value: '11.8%',
-            description: 'Tỷ lệ lượt xem chuyển thành gửi biểu mẫu trong tuần này',
-          },
-        ]
-      : [
-          {
-            label: 'Active listings',
-            value: '12',
-            description: '3 listings were published in the last 7 days',
-          },
-          {
-            label: 'Total views',
-            value: '3.4K',
-            description: 'Up 18% compared with last week',
-          },
-          {
-            label: 'New leads',
-            value: '29',
-            description: '6 leads came from printed QR codes',
-          },
-          {
-            label: 'Conversion rate',
-            value: '11.8%',
-            description: 'This week’s view-to-form-submit conversion rate',
-          },
-        ]
-  const localizedPricingPlans = pricingPlans.map((plan) => getLocalizedPricingPlan(plan, locale))
+export function HomePage({ locale, featuredListing, listings }: HomePageProps) {
+  const content = getLocaleMessages(locale).HomePage
+  const localizedPricingPlans = pricingPlans.map((plan) => ({
+    ...plan,
+    ...content.pricingPlans[plan.id as keyof typeof content.pricingPlans],
+  })) as PricingPlan[]
 
   return (
     <main lang={locale}>
@@ -132,7 +48,7 @@ export function HomePage({ locale }: HomePageProps) {
               </div>
               <div>
                 <p className="text-sm font-medium text-slate-950">ListingKit</p>
-                <p className="text-xs text-slate-500">Dành cho môi giới bất động sản hiện đại</p>
+                <p className="text-xs text-slate-500">{content.brandTagline}</p>
               </div>
             </div>
 
@@ -142,6 +58,7 @@ export function HomePage({ locale }: HomePageProps) {
                 <a href="#reviews">{content.nav.reviews}</a>
                 <a href="#pricing">{content.nav.pricing}</a>
                 <Link href="/dashboard">{content.nav.dashboard}</Link>
+                <Link href={`/${locale}/login`}>{content.nav.login}</Link>
                 <Link href="/dashboard/listings/new">
                   <Button size="sm">
                     {content.nav.createListing}
@@ -171,7 +88,7 @@ export function HomePage({ locale }: HomePageProps) {
                     <ArrowRight className="h-4 w-4" />
                   </Button>
                 </Link>
-                <Link href={`/${locale}/l/${sampleListings[0].slug}`}>
+                <Link href={`/${locale}/l/${featuredListing.slug}`}>
                   <Button size="lg" variant="outline">
                     {content.secondaryCta}
                     <Search className="h-4 w-4" />
@@ -182,7 +99,7 @@ export function HomePage({ locale }: HomePageProps) {
               <div className="grid gap-4 sm:grid-cols-3">
                 {content.launchSteps.map((step, index) => (
                   <div key={step} className="rounded-3xl border border-(--border) bg-slate-50 p-5">
-                    <p className="text-sm font-medium text-sky-700">0{index + 1}</p>
+                    <p className="text-2xl font-bold text-sky-700">0{index + 1}</p>
                     <p className="mt-3 text-sm leading-7 text-slate-600">{step}</p>
                   </div>
                 ))}
@@ -195,7 +112,7 @@ export function HomePage({ locale }: HomePageProps) {
                 <CardDescription className="text-slate-300">{content.snapshotDescription}</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                {snapshotStats.map((stat) => (
+                {content.snapshotStats.map((stat) => (
                   <div key={stat.label} className="rounded-3xl bg-white/10 p-5">
                     <div className="flex items-start justify-between gap-4">
                       <div>
@@ -261,7 +178,7 @@ export function HomePage({ locale }: HomePageProps) {
           </div>
 
           <div className="mt-10 grid gap-6 xl:grid-cols-3">
-            {sampleListings.map((listing) => (
+            {listings.map((listing) => (
               <ListingCard key={listing.id} listing={listing} locale={locale} />
             ))}
           </div>
@@ -358,7 +275,11 @@ export function HomePage({ locale }: HomePageProps) {
               </Button>
             </Link>
             <Link href="/dashboard/listings/new">
-              <Button size="lg" variant="outline" className="border-white/20 bg-transparent text-white hover:bg-white/10">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/20 bg-transparent text-white hover:bg-white/10"
+              >
                 {content.continueBuild}
                 <ListPlus className="h-4 w-4" />
               </Button>

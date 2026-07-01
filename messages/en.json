@@ -1,0 +1,393 @@
+{
+  "LocaleSwitcher": {
+    "vi": "VI",
+    "en": "EN"
+  },
+  "HomePage": {
+    "brandTagline": "Built for modern real estate agents",
+    "metaTitle": "ListingKit | Property pages that help agents win trust and book more viewings",
+    "nav": {
+      "features": "Features",
+      "reviews": "Reviews",
+      "pricing": "Pricing",
+      "dashboard": "Dashboard",
+      "login": "Sign in",
+      "createListing": "Create listing"
+    },
+    "badge": "One page per property • Share beautifully • Win trust faster",
+    "heroTitle": "Every property deserves a page that feels as polished as the home itself.",
+    "heroDescription": "Bring photos, highlights, maps, contact actions, and viewing requests into one elegant page you can share instantly on Zalo, Facebook, or printed QR materials. Clients understand the property faster, and you look more professional from the very first click.",
+    "primaryCta": "Create your first property page",
+    "secondaryCta": "View a sample page",
+    "launchSteps": [
+      "Add the property details, pricing, floor area, and the key selling points in minutes.",
+      "Publish a clean, persuasive page that is ready to send to buyers or tenants right away.",
+      "Share the same property in Vietnamese or English depending on who you are talking to."
+    ],
+    "snapshotTitle": "Your sales pulse at a glance",
+    "snapshotDescription": "See which properties attract the most attention, where your inquiries come from, and which listings are turning interest into viewing requests.",
+    "snapshotStats": [
+      {
+        "label": "Active listings",
+        "value": "12",
+        "description": "3 listings were published in the last 7 days"
+      },
+      {
+        "label": "Total views",
+        "value": "3.4K",
+        "description": "Up 18% compared with last week"
+      },
+      {
+        "label": "New inquiries",
+        "value": "29",
+        "description": "6 inquiries came from printed QR codes"
+      },
+      {
+        "label": "Conversion rate",
+        "value": "11.8%",
+        "description": "This week’s view-to-form-submit conversion rate"
+      }
+    ],
+    "featuresLabel": "Why agents love it",
+    "featuresTitle": "A property page built to help you present listings better and book viewings faster.",
+    "featuresDescription": "Instead of sending scattered photos, copied descriptions, and map pins across multiple messages, you can share one polished page with everything a client needs.",
+    "sampleListingsLabel": "Featured listings",
+    "sampleListingsTitle": "Explore property pages shaped around real-world selling scenarios.",
+    "openDashboard": "View listings overview",
+    "reviewsLabel": "Client-facing results",
+    "reviewsTitle": "What agents say after sending dedicated property pages to clients.",
+    "reviewsDescription": "When the story of a property is presented clearly and beautifully, clients trust faster and agents spend less time repeating the same details.",
+    "pricingLabel": "Pricing",
+    "pricingTitle": "Choose the plan that matches your listing volume and selling pace.",
+    "pricingLimit": "Limit",
+    "recommended": "Recommended",
+    "nextLabel": "Ready to move faster",
+    "nextTitle": "Create once and use it across every client touchpoint.",
+    "nextDescription": "From chat messages and social posts to outdoor signage, you always have one polished link that helps clients explore the property and request a viewing with confidence.",
+    "goToDashboard": "Go to dashboard",
+    "continueBuild": "Create a new listing",
+    "reviews": [
+      {
+        "name": "Tran Hoang Phuc",
+        "role": "Luxury apartment agent • Thu Duc",
+        "quote": "I can now send one clean property page to overseas buyers and it feels far more premium than sending raw photo albums over chat."
+      },
+      {
+        "name": "Nguyen Thao Vy",
+        "role": "Team lead • East Saigon townhouses",
+        "quote": "The QR code printed on outdoor signage works surprisingly well. People scan it and land directly on a page with the full context."
+      },
+      {
+        "name": "Le Minh Quan",
+        "role": "Rental broker • Thao Dien",
+        "quote": "The bilingual page is especially useful for expat renters. The listing looks sharper and saves me time explaining the same details repeatedly."
+      }
+    ],
+    "valueProps": [
+      {
+        "title": "One landing page per property",
+        "description": "Each listing gets a dedicated public URL that is easy to share across chat, social, email, and QR."
+      },
+      {
+        "title": "SEO metadata per listing",
+        "description": "Titles, descriptions, canonicals, Open Graph data, and sitemap entries are structured for public pages."
+      },
+      {
+        "title": "Vietnamese and English routes",
+        "description": "Serve both domestic and international audiences with dedicated localized paths."
+      },
+      {
+        "title": "Clear inquiry capture flow",
+        "description": "Visitors can leave their contact details directly on the page so agents can follow up faster."
+      }
+    ],
+    "pricingPlans": {
+      "free": {
+        "name": "Free",
+        "priceLabel": "$0",
+        "description": "For agents who want a simple way to publish their first few property pages.",
+        "listingLimit": "3 listings",
+        "features": [
+          {
+            "name": "Public property pages",
+            "included": true
+          },
+          {
+            "name": "QR code for each property",
+            "included": true
+          },
+          {
+            "name": "Basic inquiry form",
+            "included": true
+          },
+          {
+            "name": "AI description generator",
+            "included": false
+          },
+          {
+            "name": "Basic analytics",
+            "included": false
+          }
+        ]
+      },
+      "starter": {
+        "name": "Starter",
+        "priceLabel": "$19 / month",
+        "description": "The core plan for solo agents publishing polished property pages every week.",
+        "listingLimit": "20 listings",
+        "features": [
+          {
+            "name": "No watermark",
+            "included": true
+          },
+          {
+            "name": "Vietnamese AI descriptions",
+            "included": true
+          },
+          {
+            "name": "View and traffic analytics",
+            "included": true
+          },
+          {
+            "name": "Inquiry email notifications",
+            "included": true
+          },
+          {
+            "name": "Custom domain",
+            "included": false
+          }
+        ]
+      },
+      "pro": {
+        "name": "Pro",
+        "priceLabel": "$49 / month",
+        "description": "For small teams that need to scale volume and maintain a consistent brand.",
+        "listingLimit": "Unlimited",
+        "features": [
+          {
+            "name": "Unlimited listings",
+            "included": true
+          },
+          {
+            "name": "Team of 5 users",
+            "included": true
+          },
+          {
+            "name": "Custom domain",
+            "included": true
+          },
+          {
+            "name": "Priority support",
+            "included": true
+          },
+          {
+            "name": "Advanced analytics",
+            "included": true
+          }
+        ]
+      }
+    }
+  },
+  "ListingPage": {
+    "notFoundTitle": "Listing not found | ListingKit",
+    "publicLabel": "Property details",
+    "viewDashboard": "Dashboard",
+    "createListing": "Create listing",
+    "propertyDescription": "Property overview",
+    "propertyDescriptionHint": "A concise overview to help buyers or tenants quickly understand what makes this property worth a visit.",
+    "amenities": "Key amenities",
+    "traffic": "Interest sources",
+    "trafficHint": "A quick view of the channels bringing attention to this property page.",
+    "agentInfo": "Agent information",
+    "agentHint": "Clients can call, message on Zalo, or save the QR code to revisit the property details anytime.",
+    "agentCompany": "Agency or team",
+    "agentPhone": "Phone number",
+    "agentBio": "Introduction",
+    "agentCompanyFallback": "The agent is updating their agency or team name.",
+    "agentPhoneFallback": "The phone number will be added soon.",
+    "agentBioFallback": "The agent is updating their public introduction so clients can better understand their market focus and working style.",
+    "contactUnavailable": "Direct contact details are not available on this page yet.",
+    "callNow": "Call now",
+    "chatZalo": "Chat on Zalo",
+    "downloadQr": "Download QR code",
+    "metrics": {
+      "area": "Floor area",
+      "bedrooms": "Bedrooms",
+      "bathrooms": "Bathrooms",
+      "views": "Views"
+    },
+    "trafficSources": {
+      "Zalo": "Zalo",
+      "Facebook": "Facebook",
+      "QR": "QR",
+      "Direct": "Direct"
+    }
+  },
+  "ListingCard": {
+    "viewLandingPage": "View landing page",
+    "downloadQr": "Download QR"
+  },
+  "LeadForm": {
+    "leadTitle": "Book a property viewing",
+    "leadDescription": "Leave your details and the agent can quickly follow up to arrange a suitable viewing time.",
+    "fullName": "Full name",
+    "phone": "Phone number",
+    "preferredTime": "Preferred time",
+    "note": "Additional notes",
+    "submit": "Send viewing request",
+    "submitting": "Sending...",
+    "success": "Your viewing request has been received. The agent will follow up shortly to confirm the appointment.",
+    "genericError": "A network error occurred. Please try again later.",
+    "namePlaceholder": "John Smith",
+    "timePlaceholder": "Example: Saturday at 7 PM",
+    "notePlaceholder": "I would like to review legal docs and maintenance fees"
+  },
+  "Api": {
+    "leads": {
+      "invalidPayload": "Please enter a valid inquiry form payload.",
+      "success": "Your viewing request has been received. The agent can now follow up to confirm the appointment.",
+      "errors": {
+        "name": "Please enter a valid name.",
+        "phone": "Please enter a valid phone number.",
+        "phoneDigits": "The phone number must contain digits only."
+      }
+    }
+  },
+  "Auth": {
+    "label": "Agent account",
+    "backHome": "Back to home",
+    "benefits": [
+      "Keep your listings, page drafts, and viewing requests in one workspace.",
+      "Return anytime to refresh property details before you send them to clients.",
+      "Move faster from inquiry to booked viewing with a cleaner workflow."
+    ],
+    "fields": {
+      "email": "Email",
+      "password": "Password"
+    },
+    "login": {
+      "metaTitle": "Sign in | ListingKit",
+      "title": "Sign in to keep managing listings and client conversations in one place.",
+      "description": "Access your workspace to create new property pages, monitor incoming inquiries, and update listing details whenever the market changes.",
+      "formTitle": "Sign in to your account",
+      "formDescription": "Use the email and password tied to your agent workspace.",
+      "submit": "Sign in",
+      "submitting": "Signing in...",
+      "switchText": "Don’t have an account yet?",
+      "switchCta": "Create an account"
+    },
+    "signup": {
+      "metaTitle": "Create account | ListingKit",
+      "title": "Create an account to start publishing polished property pages.",
+      "description": "Open your workspace in minutes so you can organize listings, capture inquiries, and share properties with clients through a clean, professional link.",
+      "formTitle": "Create your account",
+      "formDescription": "Use your work email to start saving listings and managing inquiries.",
+      "passwordHint": "Use at least 8 characters for a stronger password.",
+      "submit": "Create account",
+      "submitting": "Creating account...",
+      "switchText": "Already have an account?",
+      "switchCta": "Sign in now"
+    },
+    "errors": {
+      "invalid-form": "Please review your email and password before continuing.",
+      "invalid-credentials": "The email or password is incorrect. Please try again.",
+      "signup-failed": "We could not create your account right now. Please try again shortly.",
+      "invalid-session": "Your sign-in session is invalid or has expired. Please sign in again."
+    },
+    "messages": {
+      "check-email": "Your account has been created. If email confirmation is enabled, please check your inbox to finish signing in.",
+      "signed-out": "You have signed out successfully."
+    }
+  },
+  "Dashboard": {
+    "label": "Dashboard",
+    "title": "The agent workspace",
+    "description": "Track listing performance, watch the key metrics, and launch new listings quickly from one place.",
+    "actions": {
+      "createListing": "Create new listing",
+      "profile": "Agent profile",
+      "backHome": "Back to marketing page",
+      "signOut": "Sign out"
+    },
+    "recentListings": {
+      "title": "Recent listings",
+      "description": "Quickly review the listings that are performing well so you can prioritize follow-up and refresh content when needed."
+    },
+    "aiCard": {
+      "title": "Write with AI",
+      "description": "Generate a property description from the details you enter and refine it directly in the listing creation flow.",
+      "cta": "Open listing builder"
+    },
+    "ready": {
+      "title": "Already available",
+      "items": [
+        "A marketing homepage with clear service positioning and pricing.",
+        "A dashboard with KPI cards and listing cards.",
+        "A listing creation form with AI-assisted description writing.",
+        "A public property page with QR downloads and viewing requests."
+      ]
+    }
+  },
+  "CreateListingPage": {
+    "label": "Create listing",
+    "title": "Build flexible listings for different property types",
+    "description": "Choose the right property type such as land, house, apartment, villa, or shophouse, then set the goal to sell or rent so the system can suggest the right fields to complete.",
+    "backToDashboard": "Back to dashboard"
+  },
+  "DashboardProfile": {
+    "label": "Agent profile",
+    "title": "Update your personal details and profile photo",
+    "description": "Complete your profile so clients feel more confident when viewing your landing page, calling you, or scanning your QR code.",
+    "backToDashboard": "Back to dashboard",
+    "feedback": {
+      "success": "Your profile has been updated successfully.",
+      "invalidForm": "Please review your name and the information you entered.",
+      "invalidAvatarType": "Profile photos only support JPG, PNG, or WebP formats.",
+      "avatarTooLarge": "Profile photos must be 5MB or smaller for reliable upload and display.",
+      "updateFailed": "We could not update your profile right now. Please try again in a few minutes."
+    },
+    "preview": {
+      "title": "Public profile preview",
+      "description": "This is the first section clients usually see when they open your profile page.",
+      "companyFallback": "Add your agency or team name to make your public profile look more professional.",
+      "planLabel": "Plan",
+      "contactTitle": "Contact details",
+      "contactFallback": "Add a phone number so clients can call you directly from your public page.",
+      "bioTitle": "Public introduction",
+      "bioFallback": "Add a few short lines about your market area, working style, or advisory strengths.",
+      "accountTitle": "Sign-in account",
+      "accountFallback": "Your account email will appear here."
+    },
+    "form": {
+      "title": "Profile information",
+      "description": "Update your avatar, contact details, and short introduction so clients feel more confident before they call or message you.",
+      "avatarHint": "Upload a clear headshot. A square image works best.",
+      "avatarFormats": "Supports JPG, PNG, and WebP. Maximum size: 5MB.",
+      "selectNewImage": "Choose a new photo",
+      "bioLimit": "Up to 512 characters",
+      "bioHint": "This section will appear on your public page so clients can understand your experience, focus area, and advisory style.",
+      "footerHint": "After saving, the new photo and details will be used for the listing pages you publish next.",
+      "save": "Save profile",
+      "fields": {
+        "avatar": "Profile photo",
+        "name": "Full name",
+        "phone": "Phone number",
+        "company": "Agency / team",
+        "email": "Sign-in email",
+        "bio": "Public introduction"
+      },
+      "placeholders": {
+        "name": "Example: Nguyen Minh An",
+        "phone": "Example: 0901234567",
+        "company": "Example: An Gia Boutique Realty",
+        "bio": "Example: I specialize in townhouses and apartments in East Saigon, with a focus on clear legal guidance, cash flow insights, and a smooth closing path for both homeowners and investors."
+      }
+    }
+  },
+  "NotFound": {
+    "title": "We couldn’t find the listing you tried to open.",
+    "description": "The link may have changed, or this listing is no longer publicly available.",
+    "backHome": "Back to home",
+    "openDashboard": "Open dashboard"
+  }
+}

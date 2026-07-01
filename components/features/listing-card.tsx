@@ -5,9 +5,11 @@ import { ArrowRight, Bath, BedDouble, Eye, MapPin, QrCode, Square } from 'lucide
 import { ListingBadge } from '@/components/primitives/listing-badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { getLocalizedListing, type Locale } from '@/lib/i18n'
+import type { Locale } from '@/i18n/routing'
+import { getLocalizedListing } from '@/lib/listing-translations'
+import { getLocaleMessages } from '@/lib/messages'
 import { buildLocalizedPath } from '@/lib/seo'
-import { formatArea, formatCurrency, formatPropertyType } from '@/lib/utils'
+import { cn, formatArea, formatCurrency, formatPropertyType } from '@/lib/utils'
 import type { Listing } from '@/types/listing'
 
 interface ListingCardProps {
@@ -18,11 +20,42 @@ interface ListingCardProps {
 export function ListingCard({ listing, locale = 'vi' }: ListingCardProps) {
   const localized = getLocalizedListing(listing, locale)
   const listingPath = buildLocalizedPath(locale, `/l/${listing.slug}`)
-  const viewLabel = locale === 'vi' ? 'Xem trang giới thiệu' : 'View landing page'
+  const content = getLocaleMessages(locale).ListingCard
+
+  const specItems = [
+    {
+      key: 'area',
+      icon: <Square className="mx-auto mb-2 h-4 w-4" />,
+      value: formatArea(listing.area, locale),
+    },
+    ...(typeof listing.bedrooms === 'number'
+      ? [
+          {
+            key: 'bedrooms',
+            icon: <BedDouble className="mx-auto mb-2 h-4 w-4" />,
+            value: String(listing.bedrooms),
+          },
+        ]
+      : []),
+    ...(typeof listing.bathrooms === 'number'
+      ? [
+          {
+            key: 'bathrooms',
+            icon: <Bath className="mx-auto mb-2 h-4 w-4" />,
+            value: String(listing.bathrooms),
+          },
+        ]
+      : []),
+    {
+      key: 'views',
+      icon: <Eye className="mx-auto mb-2 h-4 w-4" />,
+      value: String(listing.viewCount),
+    },
+  ]
 
   return (
     <Card className="overflow-hidden">
-      <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
+      <div className="relative aspect-16/10 overflow-hidden bg-slate-100">
         <Image
           src={listing.images[0]}
           alt={localized.title}
@@ -54,36 +87,31 @@ export function ListingCard({ listing, locale = 'vi' }: ListingCardProps) {
           <p className="mt-1 text-sm text-slate-500">{listing.address}</p>
         </div>
 
-        <div className="grid grid-cols-4 gap-3 text-sm text-slate-600">
-          <div className="rounded-2xl bg-slate-50 p-3 text-center">
-            <Square className="mx-auto mb-2 h-4 w-4" />
-            <span>{formatArea(listing.area, locale)}</span>
-          </div>
-          <div className="rounded-2xl bg-slate-50 p-3 text-center">
-            <BedDouble className="mx-auto mb-2 h-4 w-4" />
-            <span>{listing.bedrooms}</span>
-          </div>
-          <div className="rounded-2xl bg-slate-50 p-3 text-center">
-            <Bath className="mx-auto mb-2 h-4 w-4" />
-            <span>{listing.bathrooms}</span>
-          </div>
-          <div className="rounded-2xl bg-slate-50 p-3 text-center">
-            <Eye className="mx-auto mb-2 h-4 w-4" />
-            <span>{listing.viewCount}</span>
-          </div>
+        <div
+          className={cn(
+            'grid gap-3 text-sm text-slate-600',
+            specItems.length >= 4 ? 'grid-cols-2 xl:grid-cols-4' : 'grid-cols-2'
+          )}
+        >
+          {specItems.map((item) => (
+            <div key={item.key} className="rounded-2xl bg-slate-50 p-3 text-center">
+              {item.icon}
+              <span>{item.value}</span>
+            </div>
+          ))}
         </div>
       </CardContent>
 
       <CardFooter className="flex-col items-stretch gap-3 sm:flex-row">
         <Link href={listingPath} className="flex-1">
           <Button className="w-full">
-            {viewLabel}
+            {content.viewLandingPage}
             <ArrowRight className="h-4 w-4" />
           </Button>
         </Link>
         <a href={`/api/qr/${listing.slug}?locale=${locale}`} download={`${listing.slug}-${locale}.png`} className="sm:w-auto">
           <Button variant="outline" className="w-full sm:w-auto">
-            {locale === 'vi' ? 'Tải mã QR' : 'Download QR'}
+            {content.downloadQr}
             <QrCode className="h-4 w-4" />
           </Button>
         </a>

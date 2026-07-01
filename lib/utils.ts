@@ -1,7 +1,7 @@
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
-import type { Locale } from '@/lib/i18n'
+import type { Locale } from '@/i18n/routing'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -40,9 +40,9 @@ export function formatListingIntent(value: 'sell' | 'rent', locale: Locale = 'vi
 
 export function formatPropertyType(value: string, locale: Locale = 'vi') {
   const labels: Record<string, Record<Locale, string>> = {
-    apartment: { vi: 'Căn hộ', en: 'Apartment' },
-    house: { vi: 'Nhà phố', en: 'Townhouse' },
-    land: { vi: 'Đất nền', en: 'Land plot' },
+    apartment: { vi: 'Chung cư / căn hộ', en: 'Apartment / condo' },
+    house: { vi: 'Nhà', en: 'House' },
+    land: { vi: 'Đất', en: 'Land plot' },
     villa: { vi: 'Biệt thự', en: 'Villa' },
     shophouse: { vi: 'Shophouse', en: 'Shophouse' },
   }

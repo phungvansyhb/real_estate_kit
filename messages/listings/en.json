@@ -1,0 +1,17 @@
+{
+  "can-ho-masteri-thao-dien-view-song-sai-gon": {
+    "title": "Masteri Thao Dien apartment with Saigon River view",
+    "description": "A two-bedroom apartment at Masteri Thao Dien with a generous balcony, polished interiors, and an open river view. Located next to the Metro station for quick access to District 1 and the Thao Dien neighborhood. Ideal for young families or investors targeting one of Ho Chi Minh City’s strongest rental corridors.",
+    "amenities": ["Metro", "Swimming pool", "Gym", "Vincom mall", "24/7 security"]
+  },
+  "nha-pho-lakeview-city-3-tang-noi-that-moi": {
+    "title": "Three-storey Lakeview City townhouse with new interiors",
+    "description": "A beautifully finished townhouse in Lakeview City with a wide front yard, open kitchen, and four bedrooms. The gated community offers strong security, international schools nearby, and fast access to the Long Thanh - Dau Giay expressway. Suitable for end users or buyers looking for a boutique office setup.",
+    "amenities": ["Park", "Lakeside promenade", "Gated compound", "School nearby"]
+  },
+  "van-phong-shophouse-thao-dien-mat-tien": {
+    "title": "Prime-frontage Thao Dien shophouse for showroom or studio",
+    "description": "A corner shophouse in Thao Dien with two frontages, ideal for a showroom, creative studio, or representative office. It offers high ceilings, expansive glass frontage, and consistent passing traffic. A rare commercial asset in one of the city’s most established expat neighborhoods.",
+    "amenities": ["Street frontage", "Parking", "Premium neighborhood", "Near Metro"]
+  }
+}
